@@ -1,0 +1,19 @@
+# fly.toml file generated for littleviet-test on 2023-03-11T07:56:11Z
+
+app = "littleviet-test"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+
+[experimental]
+  auto_rollback = true
+
+[[services]]
+  internal_port = 5432 # Postgres instance
+  protocol = "tcp"
+
+[[services.ports]]
+  handlers = ["pg_tls"]
+  port = 5432
